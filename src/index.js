@@ -9,6 +9,7 @@ import * as math from './utils/math.js';
 import * as strings from './utils/strings.js';
 import * as asyncDemo from './utils/asyncDemo.js';
 import * as notesApp from './miniProject/notesApp.js';
+import readline from 'readline';
 
 console.log('=== Week 1: Git & JavaScript Starter ===\n');
 
@@ -45,7 +46,7 @@ console.log('(String functions implemented)\n');
 console.log('--- Async Programming ---');
 
 // TODO: Uncomment and test the async demos once implemented
-// asyncDemo.demonstrateCallbacks();
+asyncDemo.demonstrateCallbacks();
 // asyncDemo.demonstratePromises();
 // asyncDemo.demonstrateAsyncAwait();
 
@@ -78,4 +79,22 @@ console.log('--- Your Code Here ---');
 // - Test edge cases
 // - Combine multiple functions together
 
-console.log('\n=== Keep coding! ===');
+function experiment(callback) {
+    const rl = readline.createInterface({
+        input: process.stdin, 
+        output: process.stdout 
+    });
+    
+    setTimeout(() => {
+        rl.question('Enter user ID: ', (answer) => {
+        asyncDemo.CallbacksAdditional(parseInt(answer), callback);
+        rl.close(); 
+    });
+    }, 3000);
+}
+
+function thanks() {
+ console.log('\n=== Keep coding! ===');
+}
+
+experiment(thanks);

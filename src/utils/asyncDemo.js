@@ -12,6 +12,7 @@
  * @param {number} userId - User ID to fetch
  * @param {function} callback - Callback function (error, data)
  */
+
 function fetchUserCallback(userId, callback) {
   console.log(`Fetching user ${userId}...`);
 
@@ -27,8 +28,18 @@ function fetchUserCallback(userId, callback) {
         name: `User ${userId}`,
         email: `user${userId}@example.com`,
       };
-      // Call callback with success data
+      callback(null, userData);
     } else {
+      if (userId===null){
+        const error = new Error('Please provide a user ID');
+        callback(error, null);
+        return;
+      }
+      if (typeof userId !== 'number') {
+        const error = new Error('User ID must be a number');
+        callback(error, null);
+        return;
+      }
       // Call callback with error
     }
   }, 1000);
@@ -37,11 +48,30 @@ function fetchUserCallback(userId, callback) {
 /**
  * Demonstrates callback pattern
  */
-function demonstrateCallbacks() {
+
+function demonstrateCallbacks(userId) {
   console.log('\n=== Callback Demo ===');
   // TODO: Call fetchUserCallback and handle the result
   // Hint: Pass a callback function that logs the result or error
-}
+  fetchUserCallback(1, (error, userData) => {
+    if (error) {
+      console.error('Error:', error.message);
+    } else {
+     console.log('User Data:', userData);
+    }
+  });
+} 
+
+function CallbacksAdditional(userId, callback) {
+  fetchUserCallback(userId, (error, userData) => {
+    if (error) {
+      console.error('Error:', error.message);
+    } else {
+     console.log('User Data:', userData);
+    }
+    callback();
+  });
+} 
 
 // ============================================
 // 2. PROMISES
@@ -67,9 +97,16 @@ function fetchUserPromise(userId) {
           name: `User ${userId}`,
           email: `user${userId}@example.com`,
         };
+        resolve(userData);
         // Resolve with user data
       } else {
-        // Reject with error
+        if (userId===null){
+          reject(new Error('Please provide a user ID'));
+          return;
+        } else {
+          reject(new Error('Invalid user ID'));
+          return;
+        }
       }
     }, 1000);
   });
@@ -146,4 +183,5 @@ export {
   fetchMultipleUsers,
   demonstrateAsyncAwait,
   fetchUsersParallel,
+  CallbacksAdditional
 };
