@@ -13,6 +13,8 @@ function capitalize(str) {
   // Hint: Get the first character with str[0] or str.charAt(0)
   // Convert it to uppercase, then concatenate with the rest of the string
   // Don't forget to handle empty strings!
+  if (!str) return str;
+  return str[0].toUpperCase() + str.slice(1);
 }
 
 /**
@@ -24,6 +26,14 @@ function reverse(str) {
   // TODO: Implement reverse
   // Hint: Convert string to array with split(''), reverse it, join back
   // Or you can use a loop to build the reversed string
+  if (!str) return str;
+  return str.split('').reverse().join('');
+  /* let reversed = '';
+  let i = str.length - 1;
+  for (i; i>=0; i--){
+    reversed += str[i];
+  }
+  return reversed; */
 }
 
 /**
@@ -36,6 +46,10 @@ function isPalindrome(str) {
   // Hint: Convert to lowercase first for case-insensitive comparison
   // Compare the string with its reversed version
   // You can use the reverse function you just wrote!
+  if (!str) return str;
+  const n = str.toLowerCase();
+  const reverse = n.split('').reverse().join('');
+  return n === reverse;
 }
 
 /**
@@ -48,6 +62,9 @@ function wordCount(str) {
   // Hint: Trim whitespace first, then split by spaces
   // Don't forget to handle empty strings!
   // Be careful with multiple spaces between words
+  if (!str) return 0;
+  const num = str.trim().split(/\s+/).length;
+  return num;
 }
 
 // Export all functions
