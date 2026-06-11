@@ -18,13 +18,13 @@ console.log('=== Week 1: Git & JavaScript Starter ===\n');
 console.log('--- Math Utilities ---');
 
 // TODO: Uncomment and test these once you implement the math functions
-// console.log('5 + 3 =', math.add(5, 3));
-// console.log('10 - 4 =', math.subtract(10, 4));
-// console.log('6 * 7 =', math.multiply(6, 7));
-// console.log('20 / 4 =', math.divide(20, 4));
-// console.log('2^8 =', math.power(2, 8));
+console.log('5 + 3 =', math.add(5, 3));
+console.log('10 - 4 =', math.subtract(10, 4));
+console.log('6 * 7 =', math.multiply(6, 7));
+console.log('20 / 4 =', math.divide(20, 4));
+console.log('2^8 =', math.power(2, 8));
 
-console.log('(Math functions not yet implemented)\n');
+console.log('(Math functions implemented)\n');
 
 // ============================================
 // Part 2: String Utilities Demo
