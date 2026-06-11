@@ -32,12 +32,12 @@ console.log('(Math functions not yet implemented)\n');
 console.log('--- String Utilities ---');
 
 // TODO: Uncomment and test these once you implement the string functions
-// console.log('Capitalize "hello" =', strings.capitalize('hello'));
-// console.log('Reverse "javascript" =', strings.reverse('javascript'));
-// console.log('Is "racecar" a palindrome?', strings.isPalindrome('racecar'));
-// console.log('Word count in "Hello World" =', strings.wordCount('Hello World'));
+console.log('Capitalize "hello" =', strings.capitalize('hello'));
+console.log('Reverse "javascript" =', strings.reverse('javascript'));
+console.log('Is "racecar" a palindrome?', strings.isPalindrome('racecar'));
+console.log('Word count in "Hello World" =', strings.wordCount('Hello World'));
 
-console.log('(String functions not yet implemented)\n');
+console.log('(String functions implemented)\n');
 
 // ============================================
 // Part 3: Async Programming Demo
