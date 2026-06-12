@@ -129,6 +129,16 @@ function demonstratePromises() {
    ));
 }
 
+function PromisesAdditional(userId) {
+  fetchUserPromise(userId)
+   .then(userData => (
+      console.log('User Data:', userData)
+   ))
+   .catch(error => (
+      console.error('Error:', error.message)
+   ));
+}
+
 // ============================================
 // 3. ASYNC/AWAIT
 // ============================================
@@ -141,6 +151,7 @@ function demonstratePromises() {
 function delay(ms) {
   // TODO: Return a promise that resolves after ms milliseconds
   // Hint: Use setTimeout inside a Promise
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 /**
@@ -153,6 +164,17 @@ async function fetchMultipleUsers(userIds) {
   // Hint: Use a loop and await fetchUserPromise for each ID
   // Use try/catch to handle errors
   // Return an array of all user data
+  const users = [];
+  for (const id of userIds) {
+    try {
+      const userData = await fetchUserPromise(id);
+      users.push(userData);
+      await delay(500); 
+    } catch (error) {
+      console.error(`Error fetching user ${id}:`, error.message);
+    }
+  }
+  return users;
 }
 
 /**
@@ -163,6 +185,23 @@ async function demonstrateAsyncAwait() {
   // TODO: Call fetchMultipleUsers with an array of user IDs
   // Use try/catch to handle any errors
   // Log the results
+  try {
+    const users = await fetchMultipleUsers([1, 2, -1, null, 'abc']);
+    console.log('Fetched Users:', users);
+  }
+  catch (error) {
+    console.error('Error:', error.message);
+  }
+}
+
+async function AsyncAwaitAdditional(userId) {
+  try {
+    const users = await fetchMultipleUsers(userId);
+    console.log('Fetched Users:', users);
+  }
+  catch (error) {
+    console.error('Error:', error.message);
+  }
 }
 
 // ============================================
@@ -178,6 +217,8 @@ async function fetchUsersParallel(userIds) {
   // TODO: Implement this using Promise.all()
   // Hint: Map userIds to promises, then use Promise.all()
   // This is faster than sequential fetching!
+  const promises = userIds.map(fetchUserPromise);
+  return Promise.all(promises);
 }
 
 // Export functions
@@ -190,5 +231,7 @@ export {
   fetchMultipleUsers,
   demonstrateAsyncAwait,
   fetchUsersParallel,
-  CallbacksAdditional
+  CallbacksAdditional,
+  PromisesAdditional,
+  AsyncAwaitAdditional
 };
