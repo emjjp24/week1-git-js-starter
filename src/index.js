@@ -47,7 +47,7 @@ console.log('--- Async Programming ---');
 
 // TODO: Uncomment and test the async demos once implemented
 asyncDemo.demonstrateCallbacks();
-// asyncDemo.demonstratePromises();
+asyncDemo.demonstratePromises();
 // asyncDemo.demonstrateAsyncAwait();
 
 console.log('(Async demos not yet implemented)\n');
@@ -86,10 +86,13 @@ function experiment(callback) {
     });
     
     setTimeout(() => {
-        rl.question('Enter user ID: ', (answer) => {
-        asyncDemo.CallbacksAdditional(parseInt(answer), callback);
-        rl.close(); 
-    });
+        console.log(`\n=== Experiment functions here ===`);
+        setTimeout(() => {
+            rl.question('Enter user ID: ', (answer) => {
+            asyncDemo.CallbacksAdditional(answer, callback);
+            rl.close(); 
+            });
+        }, 1000);
     }, 3000);
 }
 

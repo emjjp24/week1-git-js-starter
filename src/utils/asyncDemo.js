@@ -36,7 +36,7 @@ function fetchUserCallback(userId, callback) {
         return;
       }
       if (typeof userId !== 'number') {
-        const error = new Error('User ID must be a number');
+        const error = new Error('User ID must be only a number');
         callback(error, null);
         return;
       }
@@ -120,6 +120,13 @@ function demonstratePromises() {
   // TODO: Call fetchUserPromise and chain .then() and .catch()
   // Hint: Use .then() to handle success and .catch() to handle errors
   // Log the results to console
+  fetchUserPromise(2)
+   .then(userData => (
+      console.log('User Data:', userData)
+   ))
+   .catch(error => (
+      console.error('Error:', error.message)
+   ));
 }
 
 // ============================================
