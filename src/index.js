@@ -72,14 +72,12 @@ console.log('(Notes app not yet implemented)\n');
 // ============================================
 // Your Experimentation Space
 // ============================================
-console.log('--- Your Code Here ---');
+console.log('--- Execution of the code here ---');
 // TODO: Use this space to experiment and test your code
 // For example:
 // - Try different function inputs
 // - Test edge cases
 // - Combine multiple functions together
-
-console.log('\n=== Experiment functions here ===\n');
 
 const rl = readline.createInterface({
         input: process.stdin, 
@@ -94,6 +92,9 @@ function askQues(ques){
     });
 }
 
+setTimeout(() => {
+    console.log('\n\n--- Your Code Here ---\n=== Experiment functions here ===');}, 7000);
+
 async function testAwait(){
     setTimeout(async() => {
         console.log(`\n=== Testing Async/Await ===`);
@@ -104,7 +105,7 @@ async function testAwait(){
             arr.push(ans);
         }
         await asyncDemo.AsyncAwaitAdditional(arr);
-    }, 12000);
+    }, 14000);
 }
 
 function testPromise(){
@@ -113,7 +114,7 @@ function testPromise(){
         rl.question('Enter user ID: ', (answer) => {
             asyncDemo.PromisesAdditional(answer);
         });
-    },7000);
+    },8000);
 }
 
 function experimentCallback(callback) {
@@ -125,7 +126,7 @@ function experimentCallback(callback) {
             rl.close(); 
             });
         }, 1000);
-    }, 24000);
+    }, 25000);
 }
 
 function thanks() {
