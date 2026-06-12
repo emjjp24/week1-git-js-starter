@@ -145,8 +145,8 @@ Follow the exercises in `merge-conflict-practice.md` to:
 
 ## ✅ Completion Checklist
 
-- [ ] All utility functions implemented and working
-- [ ] Async examples completed
+- [✅] All utility functions implemented and working
+- [✅] Async examples completed
 - [ ] Notes app CRUD operations functional
 - [ ] All TODOs resolved
 - [ ] Code properly commented

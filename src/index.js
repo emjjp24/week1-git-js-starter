@@ -48,9 +48,9 @@ console.log('--- Async Programming ---');
 // TODO: Uncomment and test the async demos once implemented
 asyncDemo.demonstrateCallbacks();
 asyncDemo.demonstratePromises();
-// asyncDemo.demonstrateAsyncAwait();
+asyncDemo.demonstrateAsyncAwait();
 
-console.log('(Async demos not yet implemented)\n');
+console.log('(Async demos implemented)\n');
 
 // ============================================
 // Part 4: Notes App Demo
@@ -79,25 +79,59 @@ console.log('--- Your Code Here ---');
 // - Test edge cases
 // - Combine multiple functions together
 
-function experiment(callback) {
-    const rl = readline.createInterface({
+console.log('\n=== Experiment functions here ===\n');
+
+const rl = readline.createInterface({
         input: process.stdin, 
         output: process.stdout 
+});
+
+function askQues(ques){
+    return new Promise((resolve) => {
+        rl.question(ques, (answer) => {
+            resolve(answer);
+        })
     });
-    
+}
+
+async function testAwait(){
+    setTimeout(async() => {
+        console.log(`\n=== Testing Async/Await ===`);
+        const num = 3;
+        const arr = [];
+        for (let i = 0; i < num; i++){
+            const ans = await askQues(`Enter user ID ${i+1}: `);
+            arr.push(ans);
+        }
+        await asyncDemo.AsyncAwaitAdditional(arr);
+    }, 12000);
+}
+
+function testPromise(){
     setTimeout(() => {
-        console.log(`\n=== Experiment functions here ===`);
+        console.log(`\n=== Testing Promises ===`);
+        rl.question('Enter user ID: ', (answer) => {
+            asyncDemo.PromisesAdditional(answer);
+        });
+    },7000);
+}
+
+function experimentCallback(callback) {
+    setTimeout(() => {
+        console.log(`\n=== Testing Callbacks ===`);
         setTimeout(() => {
             rl.question('Enter user ID: ', (answer) => {
             asyncDemo.CallbacksAdditional(answer, callback);
             rl.close(); 
             });
         }, 1000);
-    }, 3000);
+    }, 24000);
 }
 
 function thanks() {
  console.log('\n=== Keep coding! ===');
 }
 
-experiment(thanks);
+testAwait();
+testPromise();
+experimentCallback(thanks);
