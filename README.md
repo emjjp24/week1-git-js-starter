@@ -148,8 +148,8 @@ Follow the exercises in `merge-conflict-practice.md` to:
 - [✅] All utility functions implemented and working
 - [✅] Async examples completed
 - [ ] Notes app CRUD operations functional
-- [ ] All TODOs resolved
-- [ ] Code properly commented
+- [✅] All TODOs resolved
+- [✅] Code properly commented
 - [ ] Git conflict exercises completed
 - [ ] At least 10 meaningful Git commits made
 
