@@ -58,14 +58,15 @@ console.log('(Async demos implemented)\n');
 console.log('--- Notes App Mini Project ---');
 
 // TODO: Uncomment these once you implement the notes app
-// const note1 = notesApp.addNote('Learn JavaScript', 'Complete all exercises in week 1');
-// const note2 = notesApp.addNote('Practice Git', 'Work through merge conflict scenarios');
-// console.log('All notes:', notesApp.getAllNotes());
-// console.log('Find note 1:', notesApp.getNoteById(1));
+const note1 = notesApp.addNote('Learn JavaScript', 'Complete all exercises in week 1');
+const note2 = notesApp.addNote('Practice Git', 'Work through merge conflict scenarios');
+console.log('All notes:', notesApp.getAllNotes());
+console.log('Find note 1:', notesApp.getNoteById(1));
 // notesApp.updateNote(1, 'Learn JavaScript Basics', 'Focus on functions and arrays');
 // console.log('Updated notes:', notesApp.getAllNotes());
 // notesApp.deleteNote(2);
 // console.log('After deletion:', notesApp.getAllNotes());
+console.log('Notes count:', notesApp.getNotesCount());
 
 console.log('(Notes app not yet implemented)\n');
 
