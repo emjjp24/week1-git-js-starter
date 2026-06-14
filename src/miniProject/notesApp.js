@@ -188,6 +188,15 @@ function getNotesSortedByDate(ascending = false) {
   // Hint: Create a copy of notes array, then use sort() with a compare function
   // Compare createdAt dates
   // Return the sorted array
+  const sortedNotes = [...notes];
+  sortedNotes.sort((a, b) => {
+    if (ascending) {
+      return a.createdAt - b.createdAt; // Oldest first
+    } else {
+      return b.createdAt - a.createdAt; // Newest first
+    }
+  });
+  return sortedNotes;
 }
 
 // Export all functions
